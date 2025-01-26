@@ -12,9 +12,6 @@ export default function Panels () {
         dispatch(loadPosts());
     } , [])
     
-    console.log("check", posts)
-    
-   
     return (
         <div className="panel-container">
                 {

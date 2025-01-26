@@ -4,7 +4,8 @@ export default function Panel (props){
 
     const {data} = props;
 
-    let thing;
+let thing;
+   try {
     if(data.post_hint === "image") {
         thing = <img src={data.url}></img>;
     }   else if (data.post_hint === "hosted:video") {
@@ -17,6 +18,9 @@ export default function Panel (props){
     } else {
         thing = <a href={data.url} target="_blank">{data.url}</a>
     }
+   } catch (err) {
+    console.log(err);
+   }
 
 
     return ( 

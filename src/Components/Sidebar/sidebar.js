@@ -1,9 +1,19 @@
 import React from "react";
-import { getSubReddit } from "../API-Call/api-call";
+import { useDispatch, useSelector, useEffect } from "react-redux";
+import { isLoadingSubreddits, failedToLoadSubreddits, listOfSubreddits, loadSubreddits } from "./SidebarSlice";
+import OneBar from "./onebar";
+import styles from "../Styles/styles.module.css"
 
-export default function sideBar(props) {
+export default function SideBar() {
 
-    const {data}= props;
+    const subreddits = useSelector(listOfSubreddits);
+    const dispatch = useDispatch();
+   
+    useEffect (() => {
+        dispatch(loadSubreddits());
+    } , [])
+
+    console.log("check check", subreddits);
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -11,19 +21,13 @@ export default function sideBar(props) {
     };
 
     return (
-        <div className={styles.sideBar-container}>
+        <div className={styles.sideBarContainer}>
             <div className={styles.sideBar}>
-                {
-                    (data === null)? "" : data.map((child) => 
-                    <button aria-label={child.subreddit}
-                            className={styles.sideBarBTN}
-                            onClick={handleClick}
-                            value={child.subreddit_id}
-                    >
-                        {child.subreddit_name_prefixed}
-                    </button>
+                 {
+                    (subreddits.data === null)? "" : subreddits.map((child, index) => 
+                        <OneBar data={child.data} key={index}/>       
                     ) 
-                }
+                    }
             </div>
         </div>
     )

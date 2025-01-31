@@ -1,9 +1,8 @@
-import React from "react";
-import { useDispatch, useSelector, useEffect } from "react-redux";
+import { React, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { isLoadingSubreddits, failedToLoadSubreddits, listOfSubreddits, loadSubreddits } from "./SidebarSlice";
 import OneBar from "./onebar";
-import styles from "../Styles/styles.module.css"
-
+import styles from "../../Features/App.module.css"
 export default function SideBar() {
 
     const subreddits = useSelector(listOfSubreddits);

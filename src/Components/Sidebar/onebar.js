@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../Styles/styles.module.css"
+import styles from "../../Features/App.module.css"
 
 export default function OneBar(props) {
 

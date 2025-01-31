@@ -11,9 +11,9 @@ export const loadSubreddits = createAsyncThunk("posts/getPosts",
 );
 
 export const SidebarSlice = createSlice({
-    name: "Subreddits",
+    name: "subreddits",
     initialState: {
-        Subreddits: [],
+        subreddits: [],
         isLoadingSubreddits: false,
         failedToLoadSubreddits: false,
     },
@@ -30,12 +30,12 @@ export const SidebarSlice = createSlice({
         .addCase(loadSubreddits.fulfilled, (state, action) => {
             state.isLoadingSubreddits = false;
             state.failedToLoadSubreddits = false;
-            state.Subreddits = action.payload;
+            state.subreddits = action.payload;
         })
     }
 })
 
-export const listOfSubreddits = (state) => state.Subreddits.Subreddits;
+export const listOfSubreddits = (state) => state.subreddits.subreddits;
 export const isLoadingSubreddits = (state) => state.posts.isLoadingSubreddits;
 export const failedToLoadSubreddits = (state) => state.posts.failedToLoadSubreddits;
 export default SidebarSlice.reducer;

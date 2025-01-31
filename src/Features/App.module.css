@@ -1,0 +1,92 @@
+html {
+	margin: 0;
+    padding: 0;
+    width: 100%;
+	height: auto;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-image: linear-gradient(to right, rgba(158, 176, 199, 0), rgb(201, 156, 32));
+    color: rgb(255, 255, 255);
+    background-repeat: no-repeat;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(201, 24, 24, 0) rgba(201, 156, 32, 0);
+}
+
+.Banner {
+    text-align: center;
+    position: fixed;
+    border: 1px solid black;
+    z-index: 10;
+    background-color: black;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.appContainer {
+   
+}
+
+.App {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.sideBarContainer {
+    border-radius: 0.5rem;
+    width: 15rem;
+    height: 50rem;
+    overflow: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(201, 24, 24, 0) rgba(184, 11, 11, 0);
+    position: fixed;
+    left: 0;
+    top: 4.3rem;
+    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
+    color: black;
+    text-align: center;
+}
+
+.oneBar {
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    box-shadow:  0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
+    width: 90%;
+    justify-self: center;
+    font-size: 1rem;
+}
+
+
+.panelContainer {
+    width: 70%;
+}
+
+.onePanelContainer {
+    width: auto;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    border-radius: 0.5rem;
+}
+.onePanel {
+    height: 25rem;
+    width: 55rem;
+    justify-items: center;
+}
+
+.onePanelIMG {
+    max-width: auto;
+    max-height: 15rem;
+    justify-self: center;
+}
+
+.onePanelVideo {
+    max-width: auto;
+    max-height: 15rem;
+}

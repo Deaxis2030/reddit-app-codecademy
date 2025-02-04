@@ -1,12 +1,19 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import getAll from "../API-Call/api-call";
+import getAll, { getSubreddit, searchReddit } from "../API-Call/api-call";
 
 export const loadPosts = createAsyncThunk("posts/getPosts",
 
     
-    async () => {
-        const data = await getAll();
-        return data;
+    async (arg) => {
+        let data
+        if (!arg) {
+            return data = getAll();
+        } else if (!arg.includes("r/")) {
+            return data = searchReddit(arg);
+        } else if(arg.includes("r/")) {
+            return data = await getSubreddit(arg);
+        }
+        
     }
 
 );

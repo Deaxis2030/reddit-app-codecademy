@@ -1,15 +1,16 @@
-html {
-	margin: 0;
+*{
+    margin: 0;
     padding: 0;
-    width: 100%;
-	height: auto;
-    font-size: 16px;
     box-sizing: border-box;
+    font-size: 16px;
+}
+
+html {
+    height: 100%;
+    width: 100%;
     background-image: linear-gradient(to right, rgba(158, 176, 199, 0), rgb(201, 156, 32));
     color: rgb(255, 255, 255);
     background-repeat: no-repeat;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(201, 24, 24, 0) rgba(201, 156, 32, 0);
 }
 
 .Banner {
@@ -22,13 +23,13 @@ html {
     top: 0;
     left: 0;
     right: 0;
+    height: 5rem;
+    align-content: center;
 }
 
-.appContainer {
-   
-}
 
-.App {
+
+.mainContainer {
     display: flex;
     width: 100%;
     justify-content: space-evenly;
@@ -37,13 +38,13 @@ html {
 .sideBarContainer {
     border-radius: 0.5rem;
     width: 15rem;
-    height: 50rem;
+    height: 30rem;
     overflow: scroll;
     scrollbar-width: thin;
     scrollbar-color: rgba(201, 24, 24, 0) rgba(184, 11, 11, 0);
     position: fixed;
     left: 0;
-    top: 4.3rem;
+    top: 6rem;
     box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
     color: black;
     text-align: center;
@@ -60,6 +61,15 @@ html {
     font-size: 1rem;
 }
 
+.panelsMain {
+    padding: 10rem;
+    width: 90%;
+    height: 50rem;
+    overflow-y: scroll;
+    justify-items: center;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(201, 24, 24, 0) rgba(184, 11, 11, 0);
+}
 
 .panelContainer {
     width: 70%;
@@ -67,8 +77,6 @@ html {
 
 .onePanelContainer {
     width: auto;
-    overflow-x: scroll;
-    overflow-y: scroll;
     box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
     margin-top: 5rem;
     margin-bottom: 5rem;

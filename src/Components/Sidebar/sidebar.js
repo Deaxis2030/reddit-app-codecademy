@@ -1,6 +1,7 @@
 import { React, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { isLoadingSubreddits, failedToLoadSubreddits, listOfSubreddits, loadSubreddits } from "./SidebarSlice";
+import { loadPosts } from "../panel/panelSlice";
 import OneBar from "./onebar";
 import styles from "../../Features/App.module.css"
 export default function SideBar() {
@@ -10,21 +11,18 @@ export default function SideBar() {
    
     useEffect (() => {
         dispatch(loadSubreddits());
-    } , [])
+    } , [dispatch])
 
-    console.log("check check", subreddits);
-
-    const handleClick = (e) => {
-        e.preventDefault();
-        
-    };
+    const getUrl = (arg) => {
+        dispatch(loadPosts(arg));
+    }
 
     return (
         <div className={styles.sideBarContainer}>
             <div className={styles.sideBar}>
                  {
-                    (subreddits.data === null)? "" : subreddits.map((child, index) => 
-                        <OneBar data={child.data} key={index}/>       
+                    (subreddits.length === 0)? "" : subreddits.map((child, index) => 
+                        <OneBar getUrl={getUrl} data={child.data} key={index}/>       
                     ) 
                     }
             </div>

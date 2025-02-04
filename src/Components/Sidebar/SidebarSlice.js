@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getPopular } from "../API-Call/api-call";
 
-export const loadSubreddits = createAsyncThunk("posts/getPosts",
+export const loadSubreddits = createAsyncThunk("subreddits/loadSubreddits",
     
     async () => {
         const data = await getPopular();
@@ -36,6 +36,6 @@ export const SidebarSlice = createSlice({
 })
 
 export const listOfSubreddits = (state) => state.subreddits.subreddits;
-export const isLoadingSubreddits = (state) => state.posts.isLoadingSubreddits;
-export const failedToLoadSubreddits = (state) => state.posts.failedToLoadSubreddits;
+export const isLoadingSubreddits = (state) => state.subreddits.isLoadingSubreddits;
+export const failedToLoadSubreddits = (state) => state.subreddits.failedToLoadSubreddits;
 export default SidebarSlice.reducer;

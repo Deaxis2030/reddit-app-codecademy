@@ -1,9 +1,17 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { useState } from "react";
+import CommentPannel from "../Comments/comments";
+import { listOfComments } from "../Comments/commentsSlice";
 import styles from "../../Features/App.module.css"
+
 
 export default function Panel (props){
 
-    const {data} = props;
+    const {data, getCommentsData} = props;
+    const [button, setButton] = useState(false);
+    const commentsData = useSelector(state => listOfComments(state, data.id));
+
 
 let thing;
    try {
@@ -23,15 +31,35 @@ let thing;
     console.log(err);
    }
 
+   const handleClick = (e) => {
+    e.preventDefault();
+    setButton(!button);
+    getCommentsData(data.subreddit_name_prefixed, data.id);
+    
+   };
+
 
     return ( 
-
-        <div className={styles.onePanelContainer}>
-            <div    className={styles.onePanel}
-                    key={data.id}>
-                <h3>{data.title}</h3>
-                {thing}
-            </div> 
+        <div>
+            <div className={styles.onePanelContainer}>
+                <div    
+                    className={styles.onePanel}
+                    key={data.id}
+                >
+                    <h3>{data.title}</h3>
+                    {thing}
+                </div>  
+                <button 
+                    className={styles.panelBTN}
+                    onClick={handleClick}
+                >
+                        button
+                </button>
+            </div>
+          
+          { button && (<div >
+            <CommentPannel data={data} comments={commentsData} />
+           </div>)}
         </div>
     )
 }

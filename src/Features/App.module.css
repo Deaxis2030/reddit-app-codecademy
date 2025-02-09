@@ -98,3 +98,10 @@ html {
     max-width: auto;
     max-height: 15rem;
 }
+
+.commentPanel {
+    overflow: scroll;
+    height: 25rem;
+    width: 55rem;
+    font-size: 1.1rem;
+}

@@ -20,19 +20,18 @@ export default function Search() {
     
 
     return (
-        <div>
-            <div className={styles.SearchBar}>
-            <form className={styles.example} action="action_page.php" onSubmit={onSubmitfunc}>
-                <input  type="text" 
-                        value={text}
-                        placeholder="Search..." 
-                        name="search"
-                        onChange={handleTextChange}
-                        aria-label="search"
-                ></input>
-                <button aria-label="search-button" type="submit"><i className="fa fa-search"></i></button>
-             </form>
+     
+            <div className={styles.SearchBarContainer}>
+                <form className={styles.form} action="action_page.php" onSubmit={onSubmitfunc}>
+                    <input  type="text" 
+                            value={text}
+                            placeholder="Search..." 
+                            name="search"
+                            onChange={handleTextChange}
+                            aria-label="search"
+                    ></input>
+                    <button aria-label="search-button" type="submit"><i className="fa fa-search"></i></button>
+                </form>
             </div>
-        </div>
     )
 }

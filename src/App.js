@@ -15,8 +15,12 @@ function App() {
           <SideBar /> 
         </div>
         <div className={styles.panelsMain}>
-          <Panels /> <Search/>
+       <div className={styles.searchBar}>
+          <Search/>
         </div>
+          <Panels /> 
+        </div>
+       
       </main>
     </div>
   );

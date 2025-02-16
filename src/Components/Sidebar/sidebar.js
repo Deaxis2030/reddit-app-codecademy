@@ -19,6 +19,7 @@ export default function SideBar() {
 
     return (
         <div className={styles.sideBarContainer}>
+            <h2>Most Popular SubReddits</h2>
             <div className={styles.sideBar}>
                  {
                     (subreddits.length === 0)? "" : subreddits.map((child, index) => 

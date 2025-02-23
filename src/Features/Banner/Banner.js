@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../../Features/App.module.css"
 
+// Banner function
 export default function Banner() {
 
 

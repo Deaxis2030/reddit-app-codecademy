@@ -9,7 +9,7 @@
 html {
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(to right, rgba(158, 176, 199, 0), rgb(201, 156, 32));
+    background-image: linear-gradient(to right, rgba(158, 176, 199, 0), rgb(32, 37, 201));
     color: rgb(255, 255, 255);
     background-repeat: no-repeat;
 }
@@ -131,7 +131,7 @@ html {
 .panelsMain {
     padding: 10rem;
     width: 90%;
-    height: 50rem;
+    height: 55rem;
     overflow-y: scroll;
     justify-items: center;
     scrollbar-width: thin;
@@ -157,8 +157,8 @@ html {
 }
 
 .onePanel {
-    height: 25rem;
-    width: 50rem;
+    min-height: 25rem;
+    width: 60rem;
     justify-items: center;
     margin-top: 1rem;
     padding-right: 3rem;
@@ -253,7 +253,7 @@ html {
 }
 
 .commentsBTN {
-    height: 2rem;  
+    height: auto;  
     box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.99); 
     border-radius: 0.3rem;
     font-family: "IBM Plex Mono";
@@ -267,7 +267,21 @@ html {
     height: 25rem;
     width: 55rem;
     font-size: 1.1rem;
+    font-weight: 500;
     font-family: "IBM Plex Mono";
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-radius: 2rem;
+}
+
+.commentPanel h3 {
+    font-size: 1.5rem;
+}
+
+.commentPanel li {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .commentsBTN:active {

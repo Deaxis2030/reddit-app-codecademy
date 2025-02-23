@@ -1,3 +1,4 @@
+//Start of Date formatter function
 const dateFormatter = (data) => {
     const postTimestamp = data.created_utc;
     const currentTime = Date.now();
@@ -14,8 +15,10 @@ const dateFormatter = (data) => {
     } else if (hoursDifference <= 1) {
       output = `Posted: ${Math.floor(hoursDifference)} hr. ago`;
     } else {
+      
       // Convert the timestamp to a Date object
       const postDate = new Date(postTime);
+     
       // Format the date to a readable string
       output = postDate.toLocaleDateString();
     }

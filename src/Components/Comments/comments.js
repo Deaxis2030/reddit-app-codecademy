@@ -1,25 +1,43 @@
 import React from "react";
-import styles from "../../Features/App.module.css"
+import { useSelector } from "react-redux";
+import styles from "../../Features/App.module.css";
+import { isLoadingComments, failedToLoadComments } from "./commentsSlice";
 
-
-export default function  CommentPannel (props){
-
-    const {comments} = props;
-    console.log("checking in coment.js", comments)
+//Start of Comment Panel Function which displays the comments of a post
+export default function CommentPanel(props) {
   
-    return ( 
+  //Main Variables
+  const { comments } = props;
+  const loading = useSelector(isLoadingComments);
+  const failed = useSelector(failedToLoadComments);
+  const loadingText = <p className={styles.loadingText}>Loading Posts...</p>;
+  const failedText = <p className={styles.failedText}>Failed to load Posts!</p>
 
-        <div className={styles.commentsContainer}>
-            <div    className={styles.commentPanel}>
-                <h3>Comments</h3>
-                <ul>
-                    { comments && Array.isArray(comments)? (comments.map(comment => (
-                    <li key={comment.id}>
-                        <p><strong>{comment.author}</strong>: {comment.body}</p>
-                    </li>
-                    ))):""}
-                </ul>
-            </div> 
-        </div>
-    )
+  //Return Section mapping each comment made on the post  
+  return (
+    <div className={styles.commentsContainer}>
+      <div className={styles.commentPanel}>
+        <h3>
+          {loading
+            ? `${loadingText}`
+            : failed
+            ? `${failedText}`
+            : `Comments: ${comments.length}`}
+        </h3>
+        <ul>
+          {comments && Array.isArray(comments) ? (
+            comments.map((comment) => (
+              <li key={comment.id}>
+                <p>
+                  <strong>{comment.author}</strong>: {comment.body}
+                </p>
+              </li>
+            ))
+          ) : (
+            <li>No comments available</li>
+          )}
+        </ul>
+      </div>
+    </div>
+  );
 }

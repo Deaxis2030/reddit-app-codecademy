@@ -68,9 +68,15 @@ export default function Panel (props){
                     className={styles.onePanel}
                     key={data.id}
                 >
-                    <h3>{data.title}</h3>
-                    {panelData}
-                    <h6>{dateFormatter(data)}</h6> 
+                   <div className={styles.onePanelTitle}>
+                         <h3>{data.title}</h3>
+                   </div>
+                   <div className={styles.onePanelData}>
+                         {panelData}
+                   </div>
+                   <div className={styles.onePanelPostDate}>
+                        <h6>{dateFormatter(data)}</h6> 
+                   </div>
                 </div> 
                
                 <div className={styles.buttonContainer}>  

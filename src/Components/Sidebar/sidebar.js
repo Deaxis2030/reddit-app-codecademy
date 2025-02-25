@@ -1,4 +1,4 @@
-import { React, useEffect } from "react";
+import { React, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { isLoadingSubreddits, failedToLoadSubreddits, listOfSubreddits, loadSubreddits } from "./SidebarSlice";
 import { loadPosts } from "../panel/panelSlice";
@@ -9,6 +9,7 @@ import styles from "../../Features/App.module.css"
 export default function SideBar() {
 
     //Main Variables
+    const [button, setButton] = useState(false);
     const loading = useSelector(isLoadingSubreddits);
     const failed = useSelector(failedToLoadSubreddits);
     const subreddits = useSelector(listOfSubreddits);
@@ -26,9 +27,15 @@ export default function SideBar() {
         dispatch(loadPosts(arg));
     }
 
+    const handleClick = (e) => {
+        e.preventDefault();
+        setButton(!button);
+    }
+
     //Return Section Mapping the subreddits to sidebar section
     return (
-        <div className={styles.sideBarContainer}>
+        <div className={button? styles.outerContainer: styles.noMarginContainer}>
+             <div className={button? styles.sideBarContainer: styles.noSideBar}>
             <h2>Most Popular SubReddits</h2>
             <div className={styles.sideBar}>
                     {loading ? (
@@ -41,6 +48,13 @@ export default function SideBar() {
                     ) 
                     }
             </div>
+          
+        </div>  
+            <button 
+                className={styles.sideBarButton}
+                onClick={handleClick}    
+            >
+                press</button>
         </div>
     )
 }

@@ -45,6 +45,26 @@ html {
 
 /*SideBar Section*/
 
+.outerContainer{
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    position: fixed;
+    width: 25rem;
+    margin-left: 11rem;
+    margin-top: 6rem;
+}
+
+.noMarginContainer {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    position: fixed;
+    width: 25rem;
+    margin-top: 6rem;
+    left: 0;
+}
+
 .sideBarContainer {
     border-radius: 0.5rem;
     width: 15rem;
@@ -58,6 +78,22 @@ html {
     box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
     color: black;
     text-align: center;
+    transition: width 0.5s;
+}
+
+.noSideBar {
+    transition: width 0.5s;
+    width: 0;
+    opacity: 0;
+    line-height: 0;
+}
+
+
+.sideBarButton {
+    justify-self: right;
+    width: 5rem;
+    height: 3rem;
+    cursor: pointer;
 }
 
 .sideBarContainer h2 {
@@ -188,6 +224,7 @@ html {
 
 .onePanel h6 {
     margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .panelInfoContainer {
@@ -273,15 +310,26 @@ html {
     border-right: 1px solid black;
     border-bottom: 1px solid black;
     border-radius: 2rem;
+    justify-self: center;
+    transition: height 2s, opacity 2s ;
+}
+
+.noCommentPanel {
+    transition: height 0.2s;
+    height: 0;
+    opacity: 0;
+    width: 0;
 }
 
 .commentPanel h3 {
     font-size: 1.5rem;
+    margin-left: 3rem;
+    margin-top: 2rem;
 }
 
 .commentPanel li {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin: 3rem;
+   
 }
 
 .commentsBTN:active {

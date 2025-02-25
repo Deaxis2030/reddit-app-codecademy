@@ -70,7 +70,7 @@ export default function Panel (props){
                 >
                     <h3>{data.title}</h3>
                     {panelData}
-                    <h6>{dateFormatter(data)}</h6>
+                    <h6>{dateFormatter(data)}</h6> 
                 </div> 
                
                 <div className={styles.buttonContainer}>  
@@ -82,10 +82,9 @@ export default function Panel (props){
                     </button>
                 </div>
             </div>
-          
-          { button && (<div >
-            <CommentPanel data={data} comments={commentsData} />
-           </div>)}
+         
+            <CommentPanel button={button} data={data} comments={commentsData} />
+       
         </div>
     )
 }

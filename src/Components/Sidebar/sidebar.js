@@ -18,8 +18,12 @@ export default function SideBar() {
   const failed = useSelector(failedToLoadSubreddits);
   const subreddits = useSelector(listOfSubreddits);
   const dispatch = useDispatch();
-  const loadingText = <p className={styles.loadingText}>Loading Subreddits...</p>;
-  const failedText = <p className={styles.failedText}>Failed to load Subreddits!</p>;
+  const loadingText = (
+    <p className={styles.loadingText}>Loading Subreddits...</p>
+  );
+  const failedText = (
+    <p className={styles.failedText}>Failed to load Subreddits!</p>
+  );
 
   //Function to load subreddits
   useEffect(() => {
@@ -42,19 +46,21 @@ export default function SideBar() {
       <div className={button ? styles.sideBarContainer : styles.noSideBar}>
         <h2>Most Popular SubReddits</h2>
         <div className={styles.sideBar}>
-          {loading
-            ? <h2>{loadingText}</h2>
-            : failed
-            ? <h2>{failedText}</h2>
-            : subreddits.length === 0
-            ? ""
-            : subreddits.map((child, index) => (
-                <OneBar getUrl={getUrl} data={child.data} key={index} />
-              ))}
+          {loading ? (
+            <h2 className={styles.loadingText}>{loadingText}</h2>
+          ) : failed ? (
+            <h2 className={styles.failedText}>{failedText}</h2>
+          ) : subreddits.length === 0 ? (
+            ""
+          ) : (
+            subreddits.map((child, index) => (
+              <OneBar getUrl={getUrl} data={child.data} key={index} />
+            ))
+          )}
         </div>
       </div>
       <button className={styles.sideBarButton} onClick={handleClick}>
-        {button? "Hide": "Show"}
+        {button ? "Hide" : "Show"}
       </button>
     </div>
   );

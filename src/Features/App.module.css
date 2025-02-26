@@ -183,6 +183,11 @@ html {
     width: 70%;
 }
 
+.loadingText, .failedText {
+    margin-top: 5rem;
+    font-size: 3rem;
+    text-shadow: 1.5px 1.5px 0px rgb(4, 5, 17);
+}
 
 /*Single Panel Section*/
 .onePanelContainer {

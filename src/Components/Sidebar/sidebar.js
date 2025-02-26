@@ -54,7 +54,7 @@ export default function SideBar() {
             ""
           ) : (
             subreddits.map((child, index) => (
-              <OneBar getUrl={getUrl} data={child.data} key={index} />
+              <OneBar button={button} getUrl={getUrl} data={child.data} key={index} />
             ))
           )}
         </div>

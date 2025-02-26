@@ -1,367 +1,349 @@
 /*Universal Section*/
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-size: 16px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
 }
 
 html {
-    height: 100%;
-    width: 100%;
-    background-image: linear-gradient(to right, rgba(158, 176, 199, 0), rgb(32, 37, 201));
-    color: rgb(255, 255, 255);
-    background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(
+    to right,
+    rgba(158, 176, 199, 0),
+    rgb(32, 37, 201)
+  );
+  color: rgb(255, 255, 255);
+  background-repeat: no-repeat;
 }
 
 .Banner {
-    text-align: center;
-    position: fixed;
-    border: 1px solid black;
-    z-index: 10;
-    background-color: black;
-    width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5rem;
-    align-content: center;
-    font-family: "Cinzel Decorative";   
+  text-align: center;
+  position: fixed;
+  border: 1px solid black;
+  z-index: 10;
+  background-color: black;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5rem;
+  align-content: center;
+  font-family: "Cinzel Decorative";
 }
 
 .Banner h2 {
-    font-size: 3rem;
+  font-size: 3rem;
 }
-
-
 
 .mainContainer {
-    display: flex;
-    width: 100%;
-    justify-content: space-evenly;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
 }
-
-
 
 /*SideBar Section*/
 
-.outerContainer{
-    display: flex;
-    flex-direction: row;
-    height: auto;
-    position: fixed;
-    width: 25rem;
-    margin-left: 11rem;
-    margin-top: 6rem;
+.outerContainer {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  position: fixed;
+  width: 25rem;
+  margin-left: 11rem;
+  margin-top: 6rem;
 }
 
 .noMarginContainer {
-    display: flex;
-    flex-direction: row;
-    height: auto;
-    position: fixed;
-    width: 25rem;
-    margin-top: 6rem;
-    left: 0;
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  position: fixed;
+  width: 25rem;
+  margin-top: 6rem;
+  left: 0;
 }
 
 .sideBarContainer {
-    border-radius: 0.5rem;
-    width: 15rem;
-    height: 70%;
-    overflow: scroll;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(201, 24, 24, 0) rgba(184, 11, 11, 0);
-    position: fixed;
-    left: 0;
-    top: 6rem;
-    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
-    color: black;
-    text-align: center;
-    transition: width 0.5s;
+  border-radius: 0.5rem;
+  width: 15rem;
+  height: 70%;
+  overflow: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201, 24, 24, 0) rgba(184, 11, 11, 0);
+  position: fixed;
+  left: 0;
+  top: 6rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
+  color: black;
+  text-align: center;
+  transition: width 0.5s;
 }
 
 .noSideBar {
-    transition: width 0.5s;
-    width: 0;
-    opacity: 0;
-    line-height: 0;
+  transition: width 0.5s;
+  width: 0;
+  opacity: 0;
+  line-height: 0;
 }
 
-
 .sideBarButton {
-    justify-self: right;
-    width: 5rem;
-    height: 3rem;
-    cursor: pointer;
-    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.99); 
-    border-radius: 0.3rem;
+  justify-self: right;
+  width: 5rem;
+  height: 3rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
+  border-radius: 0.3rem;
 }
 
 .sideBarContainer h2 {
-    font-size: 1.2rem;
-    text-align: center;
-    margin-top: 1rem;
-    text-shadow: 1.2px 1.2px 0px rgb(131, 135, 185);
-    font-family: "Cinzel Decorative";
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 1rem;
+  text-shadow: 1.2px 1.2px 0px rgb(131, 135, 185);
+  font-family: "Cinzel Decorative";
 }
-
 
 /*Single bar Section*/
 
 .oneBar {
-    border: 1px solid rgba(0, 0, 0, 0);
-    border-radius: 0.5rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    box-shadow:  0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
-    width: 90%;
-    justify-self: center;
-    font-size: 1rem;
-    min-height: 2rem;
-    font-family: "IBM Plex Mono";
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
+  width: 90%;
+  justify-self: center;
+  font-size: 1rem;
+  min-height: 2rem;
+  font-family: "IBM Plex Mono";
 }
 
 .oneBar:active {
-    box-shadow: none;
-  }
-
-
-.oneBar h3 {
-    margin-top: 0.4rem;
-    margin-bottom: 0.3rem;
+  box-shadow: none;
 }
 
+.oneBar h3 {
+  margin-top: 0.4rem;
+  margin-bottom: 0.3rem;
+}
 
 /*Seach Bar section*/
 
 .form {
-    display: flex;
-    height: auto;
-    align-items: center;
+  display: flex;
+  height: auto;
+  align-items: center;
 }
 
 .SearchBarContainer input {
-    height: 3rem;
-    font-size: 1.2rem;
-    border-radius: 0.3rem;
-    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
-    
+  height: 3rem;
+  font-size: 1.2rem;
+  border-radius: 0.3rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
 }
 
 .SearchBarContainer button {
-    width: 3rem;
-    height: 3rem;
-    font-size: 1.2rem;
-    border-radius: 0.3rem;
-    background-color: rgb(33, 176, 253);
-    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.2rem;
+  border-radius: 0.3rem;
+  background-color: rgb(33, 176, 253);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
 }
 
-.SearchBarContainer button:active{
-    box-shadow: none;
-    margin-top: 0.1rem;
-    margin-bottom: -0.1rem;
+.SearchBarContainer button:active {
+  box-shadow: none;
+  margin-top: 0.1rem;
+  margin-bottom: -0.1rem;
 }
-
 
 /*All Panels Section*/
 .panelsMain {
-    padding: 10rem;
-    width: 90%;
-    height: 55rem;
-    overflow-y: scroll;
-    justify-items: center;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(201, 24, 24, 0) rgba(184, 11, 11, 0);
-    padding-right: 0;
-    font-family: "IBM Plex Mono";
-    text-shadow: 1.2px 1.2px 0px rgb(44, 54, 190);
+  padding: 10rem;
+  width: 90%;
+  height: 55rem;
+  overflow-y: scroll;
+  justify-items: center;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201, 24, 24, 0) rgba(184, 11, 11, 0);
+  padding-right: 0;
+  font-family: "IBM Plex Mono";
+  text-shadow: 1.2px 1.2px 0px rgb(44, 54, 190);
 }
 
 .panelContainer {
-    width: 70%;
+  width: 70%;
 }
 
-.loadingText, .failedText {
-    margin-top: 5rem;
-    font-size: 3rem;
-    text-shadow: 1.5px 1.5px 0px rgb(4, 5, 17);
+.loadingText,
+.failedText {
+  margin-top: 5rem;
+  font-size: 3rem;
+  text-shadow: 1.5px 1.5px 0px rgb(4, 5, 17);
 }
 
 /*Single Panel Section*/
 .onePanelContainer {
-    display: flex;
-    width: auto;
-    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-    border-radius: 0.5rem;
+  display: flex;
+  width: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  border-radius: 0.5rem;
 }
 
 .onePanel {
-    min-height: 25rem;
-    width: 60rem;
-    justify-items: center;
-    margin-top: 1rem;
-    padding-right: 3rem;
-    display: flex;
-    flex-direction: column;
+  min-height: 25rem;
+  width: 60rem;
+  justify-items: center;
+  margin-top: 1rem;
+  padding-right: 3rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .onePanelTitle {
-    margin-bottom: 2rem;
-    font-size: 1.5rem;
-    text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
-.onePanelData{
-    display: flex;
-    justify-content: center;
-    
+.onePanelData {
+  display: flex;
+  justify-content: center;
 }
 
 .onePanelIMG {
-    max-width: auto;
-    min-height: 15rem;
-    justify-self: center;
+  max-width: auto;
+  min-height: 15rem;
+  justify-self: center;
 }
 
 .onePanelVideo {
-    max-width: auto;
-    max-height: 15rem;
+  max-width: auto;
+  max-height: 15rem;
 }
 
-.onePanelP, .onePanelLink {
-    max-width: auto;
-    min-height: 15rem;
-    text-align: center;
-    text-decoration: none;
-    align-content: center;
+.onePanelP,
+.onePanelLink {
+  max-width: auto;
+  min-height: 15rem;
+  text-align: center;
+  text-decoration: none;
+  align-content: center;
 }
 
 .onePanelPostDate {
-    display: flex;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    justify-content: center;
-    align-content: end;
+  display: flex;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  align-content: end;
 }
 
 .panelInfoContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-content: center;
-    height: auto;
-    width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  height: auto;
+  width: 20%;
 }
-
 
 /*SubReddit Name Section*/
 .subredditNameContainer {
-    margin-left: 1rem;
-    margin-top: 1rem;
-    text-align: center;
-    font-weight: 700;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 700;
 }
-
 
 /*Upvote button section*/
 .arrowContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 5rem;
-    height: 5rem;
-    align-self: center;
-    text-align: center;
-    font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 5rem;
+  height: 5rem;
+  align-self: center;
+  text-align: center;
+  font-weight: 700;
 }
 
 .upArrow {
-    width: 1rem;
-    height: 2rem;
-    margin-left: 2.02rem;
-    
+  width: 1rem;
+  height: 2rem;
+  margin-left: 2.02rem;
 }
 
 .downArrow {
-    width: 1rem;
-    height: 2rem;
-    margin-left: 2.02rem;
+  width: 1rem;
+  height: 2rem;
+  margin-left: 2.02rem;
 }
 
-
 /*Author Section*/
-.authorContainer{
-    margin-left: 1rem;
-    margin-bottom: 1rem;
-    width: auto;
-    height: auto;
-    text-align: center;
-    font-weight: 700;
+.authorContainer {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  width: auto;
+  height: auto;
+  text-align: center;
+  font-weight: 700;
 }
 
 /*Comment button Section*/
 .buttonContainer {
-    align-self: end;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
+  align-self: end;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
 }
 
 .commentsBTN {
-    height: auto;  
-    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.99); 
-    border-radius: 0.3rem;
-    font-family: "IBM Plex Mono";
-    font-weight: 600;
+  height: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
+  border-radius: 0.3rem;
+  font-family: "IBM Plex Mono";
+  font-weight: 600;
 }
-
 
 /*Comment Panel Section*/
 .commentPanel {
-    overflow: scroll;
-    height: 25rem;
-    width: 55rem;
-    font-size: 1.1rem;
-    font-weight: 500;
-    font-family: "IBM Plex Mono";
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-    border-radius: 2rem;
-    justify-self: center;
-    transition: height 2s, opacity 2s ;
+  overflow: scroll;
+  height: 25rem;
+  width: 55rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: "IBM Plex Mono";
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-radius: 2rem;
+  justify-self: center;
+  transition: height 2s, opacity 2s;
 }
 
 .noCommentPanel {
-    transition: height 0.2s;
-    height: 0;
-    opacity: 0;
-    width: 0;
+  transition: height 0.2s;
+  height: 0;
+  opacity: 0;
+  width: 0;
 }
 
 .commentPanel h3 {
-    font-size: 1.5rem;
-    margin-left: 3rem;
-    margin-top: 2rem;
+  font-size: 1.5rem;
+  margin-left: 3rem;
+  margin-top: 2rem;
 }
 
 .commentPanel li {
-    margin: 3rem;
-   
+  margin: 3rem;
 }
 
 .commentsBTN:active {
-    box-shadow: none;
-    margin-top: 0.1rem;
-    margin-bottom: -0.1rem;
+  box-shadow: none;
+  margin-top: 0.1rem;
+  margin-bottom: -0.1rem;
 }
-
-
-
-
-
-
-

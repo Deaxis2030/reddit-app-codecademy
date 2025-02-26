@@ -54,7 +54,7 @@ export default function SideBar() {
         </div>
       </div>
       <button className={styles.sideBarButton} onClick={handleClick}>
-        press
+        {button? "Hide": "Show"}
       </button>
     </div>
   );

@@ -18,8 +18,8 @@ export default function SideBar() {
   const failed = useSelector(failedToLoadSubreddits);
   const subreddits = useSelector(listOfSubreddits);
   const dispatch = useDispatch();
-  const loadingText = <p className={styles.loadingText}>Loading Posts...</p>;
-  const failedText = <p className={styles.failedText}>Failed to load Posts!</p>;
+  const loadingText = <p className={styles.loadingText}>Loading Subreddits...</p>;
+  const failedText = <p className={styles.failedText}>Failed to load Subreddits!</p>;
 
   //Function to load subreddits
   useEffect(() => {
@@ -43,9 +43,9 @@ export default function SideBar() {
         <h2>Most Popular SubReddits</h2>
         <div className={styles.sideBar}>
           {loading
-            ? `${loadingText}`
+            ? <h2>{loadingText}</h2>
             : failed
-            ? `${failedText}`
+            ? <h2>{failedText}</h2>
             : subreddits.length === 0
             ? ""
             : subreddits.map((child, index) => (

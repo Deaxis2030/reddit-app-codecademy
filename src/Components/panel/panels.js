@@ -32,9 +32,9 @@ export default function Panels() {
   return (
     <div className={styles.panelsContainer}>
       {loading ? (
-        `${loadingText}`
+        <h2>{loadingText}</h2>
       ) : failed ? (
-        `${failedText}`
+        <h2>{failedText}</h2>
       ) : (
         posts && posts.length > 0 ? (
           posts.map((child) => (

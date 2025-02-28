@@ -51,8 +51,7 @@ html {
   height: auto;
   position: fixed;
   width: 25rem;
-  margin-left: 11rem;
-  margin-top: 6rem;
+  margin-left: 11.1rem;
 }
 
 .noMarginContainer {
@@ -61,7 +60,6 @@ html {
   height: auto;
   position: fixed;
   width: 25rem;
-  margin-top: 6rem;
   left: 0;
 }
 
@@ -135,6 +133,9 @@ html {
   display: flex;
   height: auto;
   align-items: center;
+  z-index: 11;
+  margin-top: 5rem;
+  justify-self: center;
 }
 
 .SearchBarContainer input {
@@ -163,7 +164,7 @@ html {
 .panelsMain {
   padding: 10rem;
   width: 90%;
-  height: 55rem;
+  height: 50rem;
   overflow-y: scroll;
   justify-items: center;
   scrollbar-width: thin;
@@ -171,6 +172,7 @@ html {
   padding-right: 0;
   font-family: "IBM Plex Mono";
   text-shadow: 1.2px 1.2px 0px rgb(44, 54, 190);
+  align-self: baseline;
 }
 
 .panelContainer {
@@ -190,7 +192,6 @@ html {
   width: auto;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
   margin-top: 5rem;
-  margin-bottom: 5rem;
   border-radius: 0.5rem;
 }
 
@@ -216,7 +217,7 @@ html {
 }
 
 .onePanelIMG {
-  max-width: auto;
+  max-width: 20rem;
   min-height: 15rem;
   justify-self: center;
 }
@@ -234,6 +235,9 @@ html {
   text-decoration: none;
   align-content: center;
 }
+.onePanelLink a {
+  word-wrap: break-word;
+}
 
 .onePanelPostDate {
   display: flex;
@@ -250,6 +254,7 @@ html {
   align-content: center;
   height: auto;
   width: 20%;
+  font-size: 1rem;
 }
 
 /*SubReddit Name Section*/
@@ -327,7 +332,7 @@ html {
 
 .noCommentPanel {
   transition: height 0.2s;
-  height: 0;
+  height: 5rem;
   opacity: 0;
   width: 0;
 }
@@ -351,3 +356,376 @@ html {
 /*Responsivness*/
 
 /**/
+
+@media only screen and (min-width: 1025px) and (max-width: 1440px) and (orientation: landscape) {
+  .onePanel {
+    width: 45rem;
+  }
+  .sideBarButton {
+    height: 2rem;
+    width: 3rem;
+  }
+  .sideBarContainer {
+    width: 10rem;
+  }
+  .outerContainer {
+    margin-left: 7rem;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (max-height: 849px) {
+  
+  .loadingText,
+  .failedText {
+    margin-top: 5rem;
+    font-size: 1.5rem;
+    text-shadow: 1.5px 1.5px 0px rgb(4, 5, 17);
+  }
+
+  .commentPanel {
+    font-size: 1rem;
+    width: 25rem;
+    height: 20rem;
+    margin-bottom: 5rem;
+  }
+
+
+  .buttonContainer{
+    margin-right: 1rem;
+  }
+  
+  .commentsBTN {
+    font-size: 0.7rem;
+  }
+
+  .Banner h2 {
+    font-size: 1.3rem;
+  }
+  .outerContainer {
+    padding-left: 6.7rem;
+  }
+
+  .SearchBarContainer input {
+    height: 2rem;
+    font-size: 1rem;
+  }
+
+  .SearchBarContainer button {
+    height: 2rem;
+  }
+
+  .sideBarButton {
+    height: 2rem;
+    width: 3rem;
+  }
+
+  .onePanelContainer {
+    width: 100%;
+    height: auto;
+    margin-top: 0rem;
+    justify-content: space-between;
+  }
+  .panelsMain {
+    margin-top: 0rem;
+    padding-top: 3rem;
+    padding-left: 1rem;
+    width: 90%;
+    overflow-x: scroll;
+    height: 44rem;
+  }
+  .onePanel {
+    padding-right: 0;
+    margin-right: 0;
+    width: 15rem;
+    min-height: 10rem;
+  }
+  .onePanelTitle h3,
+  h6 {
+    font-size: 0.7rem;
+    margin-left: 1rem;
+  }
+  .oneBar h3 {
+    font-size: 0.7rem;
+  }
+  .onePanelP,
+  .onePanelLink {
+    font-size: 0.8rem;
+    text-align: center;
+    max-width: 15rem;
+  }
+  .onePanelData a {
+    text-align: center;
+    max-width: 15rem;
+    max-height: 10rem;
+    word-wrap: break-word;
+  }
+
+  .onePanelIMG {
+    max-width: auto;
+    max-height: 20rem;
+    justify-self: center;
+  }
+
+  .onePanelVideo {
+    max-width: 15rem;
+    max-height: 15rem;
+  }
+
+  .onePanelData {
+    max-height: 15rem;
+  }
+
+  .sideBarContainer {
+    width: 10rem;
+  }
+
+  .sideBarContainer h2 {
+    font-size: 0.8rem;
+  }
+
+  .outerContainer {
+    margin-left: 1.7rem;
+  }
+
+  .authorContainer h3,
+  p {
+    font-size: 0.7rem;
+  }
+
+  .panelInfoContainer {
+    margin-right: 1rem;
+  }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .Banner h2 {
+    font-size: 1.3rem;
+  }
+
+  .SearchBarContainer input {
+    height: 2rem;
+    font-size: 1rem;
+  }
+
+  .SearchBarContainer button {
+    height: 2rem;
+  }
+
+  .outerContainer {
+    padding-left: 2rem;
+  }
+
+  .sideBarButton {
+    height: 2rem;
+    width: 3rem;
+  }
+
+  .onePanelContainer {
+    width: 100%;
+    height: 30rem;
+    margin-top: 0rem;
+  }
+  .panelsMain {
+    margin-top: 0rem;
+    padding-top: 3rem;
+    padding-left: 1rem;
+    width: 90%;
+    overflow-x: scroll;
+    height: 44rem;
+  }
+  .onePanel {
+    padding-right: 0;
+    margin-right: 0;
+    width: 25rem;
+    min-height: 15rem;
+  }
+  .onePanelTitle h3,
+  h6 {
+    font-size: 0.7rem;
+    margin-left: 1rem;
+  }
+  .oneBar h3 {
+    font-size: 0.7rem;
+  }
+  .onePanelP,
+  .onePanelLink {
+    font-size: 0.8rem;
+    text-align: center;
+    max-width: 15rem;
+  }
+  .onePanelData a {
+    text-align: center;
+    max-width: 15rem;
+    max-height: 15rem;
+    word-wrap: break-word;
+  }
+
+  .onePanelIMG {
+    max-width: 15rem;
+    max-height: 20rem;
+    justify-self: center;
+  }
+
+  .onePanelVideo {
+    max-width: 15rem;
+    max-height: 15rem;
+  }
+
+  .onePanelData {
+    max-height: 15rem;
+  }
+
+  .sideBarContainer {
+    width: 10rem;
+  }
+
+  .sideBarContainer h2 {
+    font-size: 0.8rem;
+  }
+
+  .outerContainer {
+    margin-left: 1.7rem;
+  }
+
+  .authorContainer h3,
+  p {
+    font-size: 0.7rem;
+  }
+
+  .panelInfoContainer {
+    margin-right: 1rem;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) and (max-height: 849px) {
+  
+  .loadingText,
+  .failedText {
+    margin-top: 5rem;
+    font-size: 1.5rem;
+    text-shadow: 1.5px 1.5px 0px rgb(4, 5, 17);
+  }
+
+  .noMarginContainer {
+    width: 0;
+    height: 0;
+  }
+
+  .commentPanel {
+    font-size: 1rem;
+    width: 15rem;
+    height: 20rem;
+    margin-bottom: 5rem;
+  }
+
+
+  .buttonContainer{
+    margin-right: 1rem;
+  }
+  
+  .commentsBTN {
+    font-size: 0.7rem;
+  }
+
+  .Banner h2{
+    font-size: 1rem;
+  }
+  .outerContainer {
+    padding-left: 7.7rem;
+  }
+
+  .SearchBarContainer input {
+    height: 1.5rem;
+    width: 6rem;
+    font-size: 1rem;
+  }
+
+  .SearchBarContainer button {
+    height: 1.5rem;
+    width: 2rem;
+  }
+
+  .sideBarButton {
+    height: 2rem;
+    width: 3rem;
+  }
+
+  .onePanelContainer {
+    width: 100%;
+    height: auto;
+    margin-top: 0rem;
+    justify-content: space-between;
+  }
+  .panelsMain {
+    margin-top: 0rem;
+    padding-top: 3rem;
+    padding-left: 1rem;
+    width: 90%;
+    overflow-x: scroll;
+    height: 44rem;
+  }
+  .onePanel {
+    padding-right: 0;
+    margin-right: 0;
+    width: 15rem;
+    min-height: 10rem;
+  }
+  .onePanelTitle h3,
+  h6 {
+    font-size: 0.7rem;
+    margin-left: 1rem;
+  }
+  .oneBar h3 {
+    font-size: 0.7rem;
+  }
+  .onePanelP,
+  .onePanelLink {
+    font-size: 0.8rem;
+    text-align: center;
+    max-width: 15rem;
+  }
+  .onePanelData a {
+    text-align: center;
+    max-width: 15rem;
+    max-height: 10rem;
+    word-wrap: break-word;
+  }
+
+  .onePanelIMG {
+    max-width: auto;
+    max-height: 20rem;
+    justify-self: center;
+  }
+
+  .onePanelVideo {
+    max-width: 15rem;
+    max-height: 15rem;
+  }
+
+  .onePanelData {
+    max-height: 15rem;
+  }
+
+  .sideBarContainer {
+    width: 10rem;
+  }
+
+  .sideBarContainer h2 {
+    font-size: 0.8rem;
+  }
+
+  .outerContainer {
+    margin-left: 1.7rem;
+  }
+
+  .authorContainer h3,
+  p {
+    font-size: 0.7rem;
+  }
+
+  .panelInfoContainer {
+    margin-right: 1rem;
+  }
+
+}

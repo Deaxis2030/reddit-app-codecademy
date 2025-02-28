@@ -45,7 +45,7 @@ export default function Panel(props) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          {data.url}
+          <p>{data.url}</p>
         </a>
       );
     } else {

@@ -1,20 +1,27 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
 //Used this import method to avoid an error where Player variable was always undefined
-const dashjs = require('dashjs');
+const dashjs = require("dashjs");
 
 //Start of VideoPlayer function
 const VideoPlayer = ({ url }) => {
   const videoRef = useRef(null);
-  
+
   useEffect(() => {
     const videoElement = videoRef.current;
     let player;
     try {
       player = dashjs.MediaPlayer().create();
+      player.updateSettings({
+        streaming: {
+          text: {
+            defaultEnabled: false, // Disable text tracks if causing issues
+          },
+        },
+      });
       player.initialize(videoElement, url, true);
     } catch (error) {
-      console.error('Error initializing dash.js player:', error);
+      console.error("Error initializing dash.js player:", error);
     }
 
     return () => {
@@ -23,7 +30,7 @@ const VideoPlayer = ({ url }) => {
       }
     };
   }, [url]);
-  
+
   //Return Section
   return (
     <video
@@ -32,7 +39,7 @@ const VideoPlayer = ({ url }) => {
       muted
       loop
       autoPlay
-      style={{ width: '100%', height: 'auto' }}
+      style={{ width: "100%", height: "auto" }}
     />
   );
 };

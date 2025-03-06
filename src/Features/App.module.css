@@ -18,6 +18,14 @@ html {
   background-repeat: no-repeat;
 }
 
+.mainContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+/*Banner Section*/
+
 .Banner {
   text-align: center;
   position: fixed;
@@ -31,17 +39,33 @@ html {
   height: 5rem;
   align-content: center;
   font-family: "Cinzel Decorative";
-}
-
-.Banner h2 {
-  font-size: 3rem;
-}
-
-.mainContainer {
   display: flex;
-  width: 100%;
-  justify-content: space-evenly;
+  justify-content: center;
 }
+
+.titleDiv{
+  align-self: center;
+}
+.title {
+  font-size: 3rem;
+  
+}
+
+.bannerBTNDiv {
+  justify-self: right;
+  justify-items: right;
+  align-self: center;
+}
+
+.lightMode {
+  background-color: rgb(196, 169, 121);
+  border: 1px, solid rgb(245, 242, 237);
+  border-radius: 1rem;
+  width: 5rem;
+  height: 1.5rem;
+
+}
+
 
 /*SideBar Section*/
 
@@ -354,6 +378,7 @@ html {
 }
 
 /*Responsivness*/
+
 @media only screen and (min-width: 1025px) and (max-width: 1440px) and (orientation: landscape) {
   .onePanel {
     width: 45rem;
@@ -395,7 +420,7 @@ html {
     font-size: 0.7rem;
   }
 
-  .Banner h2 {
+  .title {
     font-size: 1.3rem;
   }
   .outerContainer {
@@ -496,7 +521,7 @@ html {
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  .Banner h2 {
+  .title {
     font-size: 1.3rem;
   }
 

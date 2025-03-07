@@ -6,17 +6,33 @@
   font-size: 16px;
 }
 
-html {
+.appContainer {
   height: 100%;
   width: 100%;
   background-image: linear-gradient(
     to right,
     rgba(158, 176, 199, 0),
-    rgb(32, 37, 201)
+    rgb(184, 186, 235)
   );
   color: rgb(255, 255, 255);
   background-repeat: no-repeat;
+  position: fixed;
 }
+
+.appContainerDarkMode {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(11, 22, 124);
+  color: rgb(255, 255, 255);
+  background-repeat: no-repeat;
+  position: fixed;
+
+}
+
+.appContainerDarkMode h2 {
+  color: rgb(255, 255, 255);
+}
+
 
 .mainContainer {
   display: flex;
@@ -52,20 +68,52 @@ html {
 }
 
 .bannerBTNDiv {
-  justify-self: right;
-  justify-items: right;
+  margin-left: 5rem;
   align-self: center;
 }
 
-.lightMode {
-  background-color: rgb(196, 169, 121);
+.bannerBTN {
+  background-color: rgb(114, 183, 204);
   border: 1px, solid rgb(245, 242, 237);
   border-radius: 1rem;
-  width: 5rem;
+  width: 4rem;
   height: 1.5rem;
+  transition: background-color 0.1s ease, border-color 0.2s ease;
+  cursor: pointer;
+  box-shadow: 1px 1px 10px rgba(12, 12, 12, 0.748);
+  position: relative;
+} 
+
+.innerToggleBTN {
+  background-color: rgb(37, 39, 168);
+  border-radius: 10rem;
+  width: 1rem;
+  height: 1rem;
+  transform: translateX(0);
+  transition: left 0.15s ease;
+  position: absolute;
+  left: 0.2rem;
+  top: 0.2rem;
 
 }
 
+.bannerBTNdarkMode {
+  background-color: rgb(5, 6, 43);
+  border: 1px, solid rgb(245, 242, 237);
+  border-radius: 1rem;
+  width: 4rem;
+  height: 1.5rem;
+  transition: background-color 0.1s ease, border-color 0.2s ease;
+  cursor: pointer;
+  box-shadow: 1px 1px 10px rgba(12, 12, 12, 0.748);
+  position: relative;
+}
+
+.bannerBTNdarkMode .innerToggleBTN {
+  left: 2.7rem;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(238, 234, 227);
+}
 
 /*SideBar Section*/
 
@@ -195,7 +243,7 @@ html {
   scrollbar-color: rgba(201, 24, 24, 0) rgba(184, 11, 11, 0);
   padding-right: 0;
   font-family: "IBM Plex Mono";
-  text-shadow: 1.2px 1.2px 0px rgb(44, 54, 190);
+  text-shadow: 1.2px 1.2px 0px rgb(25, 33, 141);
   align-self: baseline;
 }
 
@@ -342,7 +390,7 @@ html {
 .commentPanel {
   overflow: scroll;
   height: 25rem;
-  width: 55rem;
+  width: 65rem;
   font-size: 1.1rem;
   font-weight: 500;
   font-family: "IBM Plex Mono";
@@ -352,6 +400,7 @@ html {
   border-radius: 2rem;
   justify-self: center;
   transition: height 2s, opacity 2s;
+  
 }
 
 .noCommentPanel {
@@ -380,23 +429,137 @@ html {
 /*Responsivness*/
 
 @media only screen and (min-width: 1025px) and (max-width: 1440px) and (orientation: landscape) {
-  .onePanel {
-    width: 45rem;
+  
+.title {
+    font-size: 2.5rem;
   }
+
+  .sideBarContainer {
+    width: 15rem;
+  }
+
   .sideBarButton {
     height: 2rem;
-    width: 3rem;
+    width: 4rem;
+    font-size: 1.2rem;
   }
-  .sideBarContainer {
-    width: 10rem;
+
+  .sideBarContainer h2 {
+    font-size: 1.2rem;
   }
+
   .outerContainer {
-    margin-left: 7rem;
+    margin-left: 15rem;
   }
+
+  .loadingText,
+  .failedText {
+    margin-top: 5rem;
+    font-size: 1.5rem;
+    text-shadow: 1.5px 1.5px 0px rgb(4, 5, 17);
+  }
+
+  .commentPanel {
+    font-size: 1rem;
+    width: 65rem;
+    height: 20rem;
+    margin-bottom: 5rem;
+  }
+
+
+  .buttonContainer{
+    margin-right: 1rem;
+  }
+  
+  .commentsBTN {
+    font-size: 1.2rem;
+  }
+
+  
+
+  .SearchBarContainer input {
+    height: 3rem;
+    font-size: 1.2rem;
+  }
+
+  .SearchBarContainer button {
+    height: 3rem;
+  }
+
+  
+
+  .onePanelContainer {
+    width: 100%;
+    height: auto;
+    margin-top: 0rem;
+    justify-content: space-between;
+  }
+  .panelsMain {
+    margin-top: 0rem;
+    padding-top: 3rem;
+    padding-left: 12rem;
+    width: 100%;
+    overflow-x: scroll;
+    height: 63rem;
+  }
+  .onePanel {
+    padding-right: 0;
+    margin-right: 0;
+    width: 40rem;
+    min-height: 10rem;
+  }
+  .onePanelTitle h3,
+  h6 {
+    font-size: 1.2rem;
+    margin-left: 1rem;
+  }
+  .oneBar h3 {
+    font-size: 1.2rem;
+  }
+  .onePanelP,
+  .onePanelLink {
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 15rem;
+  }
+  .onePanelData a {
+    text-align: center;
+    max-width: 15rem;
+    max-height: 10rem;
+    word-wrap: break-word;
+  }
+
+  .onePanelIMG {
+    max-width: auto;
+    max-height: 20rem;
+    justify-self: center;
+  }
+
+  .onePanelVideo {
+    max-width: 15rem;
+    max-height: 15rem;
+  }
+
+  .onePanelData {
+    max-height: 15rem;
+  }
+
+
+  .authorContainer h3,
+  p {
+    font-size: 1.2rem;
+  }
+
+  .panelInfoContainer {
+    margin-right: 1rem;
+  }
+  
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (max-height: 849px) {
+@media only screen and (min-width: 769px) and (max-width: 1024px) and (max-height: 849px) {
   
+ 
+
   .loadingText,
   .failedText {
     margin-top: 5rem;
@@ -424,7 +587,7 @@ html {
     font-size: 1.3rem;
   }
   .outerContainer {
-    padding-left: 6.7rem;
+    margin-left: 7.9rem;
   }
 
   .SearchBarContainer input {
@@ -438,7 +601,7 @@ html {
 
   .sideBarButton {
     height: 2rem;
-    width: 3rem;
+    width: 4rem;
   }
 
   .onePanelContainer {
@@ -505,10 +668,6 @@ html {
     font-size: 0.8rem;
   }
 
-  .outerContainer {
-    margin-left: 1.7rem;
-  }
-
   .authorContainer h3,
   p {
     font-size: 0.7rem;
@@ -520,107 +679,7 @@ html {
 
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  .title {
-    font-size: 1.3rem;
-  }
-
-  .SearchBarContainer input {
-    height: 2rem;
-    font-size: 1rem;
-  }
-
-  .SearchBarContainer button {
-    height: 2rem;
-  }
-
-  .outerContainer {
-    padding-left: 2rem;
-  }
-
-  .sideBarButton {
-    height: 2rem;
-    width: 3rem;
-  }
-
-  .onePanelContainer {
-    width: 100%;
-    height: 30rem;
-    margin-top: 0rem;
-  }
-  .panelsMain {
-    margin-top: 0rem;
-    padding-top: 3rem;
-    padding-left: 1rem;
-    width: 90%;
-    overflow-x: scroll;
-    height: 44rem;
-  }
-  .onePanel {
-    padding-right: 0;
-    margin-right: 0;
-    width: 25rem;
-    min-height: 15rem;
-  }
-  .onePanelTitle h3,
-  h6 {
-    font-size: 0.7rem;
-    margin-left: 1rem;
-  }
-  .oneBar h3 {
-    font-size: 0.7rem;
-  }
-  .onePanelP,
-  .onePanelLink {
-    font-size: 0.8rem;
-    text-align: center;
-    max-width: 15rem;
-  }
-  .onePanelData a {
-    text-align: center;
-    max-width: 15rem;
-    max-height: 15rem;
-    word-wrap: break-word;
-  }
-
-  .onePanelIMG {
-    max-width: 15rem;
-    max-height: 20rem;
-    justify-self: center;
-  }
-
-  .onePanelVideo {
-    max-width: 15rem;
-    max-height: 15rem;
-  }
-
-  .onePanelData {
-    max-height: 15rem;
-  }
-
-  .sideBarContainer {
-    width: 10rem;
-  }
-
-  .sideBarContainer h2 {
-    font-size: 0.8rem;
-  }
-
-  .outerContainer {
-    margin-left: 1.7rem;
-  }
-
-  .authorContainer h3,
-  p {
-    font-size: 0.7rem;
-  }
-
-  .panelInfoContainer {
-    margin-right: 1rem;
-  }
-}
-
-@media only screen and (min-width: 320px) and (max-width: 767px) and (max-height: 849px) {
+@media only screen and (min-width: 320px) and (max-width: 768px){
   
   .loadingText,
   .failedText {
@@ -628,6 +687,7 @@ html {
     font-size: 1.5rem;
     text-shadow: 1.5px 1.5px 0px rgb(4, 5, 17);
   }
+
 
   .noMarginContainer {
     width: 0;
@@ -654,7 +714,7 @@ html {
     font-size: 1rem;
   }
   .outerContainer {
-    padding-left: 7.7rem;
+    margin-left: 10.1rem;
   }
 
   .SearchBarContainer input {
@@ -681,9 +741,10 @@ html {
   }
   .panelsMain {
     margin-top: 0rem;
+    margin-left: 7rem;
     padding-top: 3rem;
     padding-left: 1rem;
-    width: 90%;
+    width: 100%;
     overflow-x: scroll;
     height: 44rem;
   }
@@ -737,9 +798,7 @@ html {
     font-size: 0.8rem;
   }
 
-  .outerContainer {
-    margin-left: 1.7rem;
-  }
+ 
 
   .authorContainer h3,
   p {

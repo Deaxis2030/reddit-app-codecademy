@@ -3,12 +3,8 @@ import styles from "../../Features/App.module.css";
 import { useState } from "react";
 
 // Banner function
-export default function Banner() {
-  const [toggle, setToggle] = useState(false);
-
-  const handleClick = () => {
-    setToggle(!toggle);
-  };
+export default function Banner({handleClick, toggle}) {
+ 
 
   return (
     <header className={styles.Banner}>
@@ -17,7 +13,7 @@ export default function Banner() {
       </div>
       <div className={styles.bannerBTNDiv}>
         <button
-          className={toggle ? styles.darkMode : styles.lightMode}
+          className={styles[`bannerBTN${toggle ? "darkMode" : ""}`]}
           onClick={handleClick}
         >
           <div className={styles.innerToggleBTN}></div>
@@ -26,3 +22,5 @@ export default function Banner() {
     </header>
   );
 }
+
+

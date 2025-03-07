@@ -27,12 +27,13 @@ export default function Panel(props) {
       );
     } else if (data.post_hint === "hosted:video") {
       const videoUrl = data.media?.reddit_video?.dash_url;
-      const videoId = data.media?.reddit_video?.id;
-      if (videoUrl && videoId) {
-        panelData = <VideoPlayer url={videoUrl} />;
+      if (videoUrl) {
+        panelData = (
+          <VideoPlayer className={styles.onePanelVideo} url={videoUrl} />
+        );
       } else {
-        console.warn("Invalid video data:", data.media);
-        panelData = <p>Video unavailable</p>;
+        // Fallback if videoUrl is not available
+        panelData = <p>Video cannot be played. Please try again later.</p>;
       }
     } else if (data.thumbnail === "self") {
       panelData = <ReactMarkdown>{data.selftext}</ReactMarkdown>;

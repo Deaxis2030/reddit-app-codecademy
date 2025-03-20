@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "../../Features/App.module.css";
-import { useState } from "react";
 
 // Banner function
 export default function Banner({handleClick, toggle}) {
@@ -13,6 +12,7 @@ export default function Banner({handleClick, toggle}) {
       </div>
       <div className={styles.bannerBTNDiv}>
         <button
+          aria-label="Toggle Dark Mode"
           className={styles[`bannerBTN${toggle ? "darkMode" : ""}`]}
           onClick={handleClick}
         >

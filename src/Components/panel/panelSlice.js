@@ -36,7 +36,7 @@ export const panelSlice = createSlice({
         state.isLoadingPosts = false;
         state.failedToLoadPosts = false;
         state.posts = action.payload;
-        console.log("checking", action.payload);
+       // console.log("checking", action.payload);
       });
   },
 });

@@ -24,7 +24,7 @@ export default function Search() {
   //Return Section displays both input bar and a button with a magnifying glass 
   return (
     <div className={styles.SearchBarContainer}>
-      <form className={styles.form} onSubmit={onSubmitfunc}>
+      <form data-testid="search-form" className={styles.form} onSubmit={onSubmitfunc}>
         <input
           type="text"
           value={text}

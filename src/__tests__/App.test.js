@@ -2,10 +2,10 @@ import '@testing-library/jest-dom';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
-import App from './App';
-import postsReducer from './Components/panel/panelSlice';
-import subredditsReducer from './Components/Sidebar/SidebarSlice';
-import commentsReducer from './Components/Comments/commentsSlice';
+import App from '../App';
+import postsReducer from '../Components/panel/panelSlice';
+import subredditsReducer from '../Components/Sidebar/SidebarSlice';
+import commentsReducer from '../Components/Comments/commentsSlice';
 
 const createTestStore = () =>
   configureStore({

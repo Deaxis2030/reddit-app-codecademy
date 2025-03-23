@@ -29,7 +29,7 @@ describe('App Component', () => {
     }));
   });
 
-  it('renders without crashing', async () => {
+  it('renders Banner, Search, SideBar, and Panels components without crashing', async () => {
     const store = createTestStore();
     render(
       <Provider store={store}>
@@ -59,6 +59,7 @@ describe('App Component', () => {
 
     await waitFor(() => {
       expect(screen.queryByText('Loading Subreddits...')).not.toBeInTheDocument();
+      expect(screen.queryByText('Loading Posts...')).not.toBeInTheDocument();
     });
   });
 
@@ -81,6 +82,7 @@ describe('App Component', () => {
 
     await waitFor(() => {
       expect(screen.queryByText('Loading Subreddits...')).not.toBeInTheDocument();
+      expect(screen.queryByText('Loading Posts...')).not.toBeInTheDocument();
     });
   });
 
@@ -100,22 +102,6 @@ describe('App Component', () => {
     fireEvent.click(toggleButton);
     expect(appContainer).toHaveClass('appContainer');
     expect(appContainer).not.toHaveClass('appContainerDarkMode');
-
-    await waitFor(() => {
-      expect(screen.queryByText('Loading Subreddits...')).not.toBeInTheDocument();
-    });
-  });
-
-  it('renders Banner, Search, SideBar, and Panels components', async () => {
-    const store = createTestStore();
-    render(
-      <Provider store={store}>
-        <App />
-      </Provider>
-    );
-    expect(screen.getByText('Reddit App 2.0')).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('Search...')).toBeInTheDocument();
-    expect(screen.getByText('Most Popular SubReddits')).toBeInTheDocument();
 
     await waitFor(() => {
       expect(screen.queryByText('Loading Subreddits...')).not.toBeInTheDocument();

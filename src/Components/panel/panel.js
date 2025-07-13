@@ -23,7 +23,7 @@ export default function Panel(props) {
   try {
     if (data.post_hint === "image") {
       panelData = (
-        <img className={styles.onePanelIMG} src={data.url} alt="Post Image" />
+        <img className={styles.onePanelIMG} src={data.url} alt="Post Content" />
       );
     } else if (data.post_hint === "hosted:video") {
       const videoUrl = data.media?.reddit_video?.dash_url;
@@ -82,9 +82,9 @@ export default function Panel(props) {
             <p>{data.subreddit_name_prefixed}</p>
           </div>
           <div className={styles.arrowContainer}>
-            <img className={styles.upArrow} src={upArrow}></img>
+            <img className={styles.upArrow} src={upArrow} alt="Up-vote"/>
             <p>{kNumberFormatter(data.ups)}</p>
-            <img className={styles.downArrow} src={downArrow} />
+            <img className={styles.downArrow} src={downArrow} alt="Down-vote" />
           </div>
           <div className={styles.authorContainer}>
             <p>by: {data.author}</p>

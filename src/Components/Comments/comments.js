@@ -3,9 +3,7 @@ import { useSelector } from "react-redux";
 import styles from "../../Features/App.module.css";
 import { isLoadingComments, failedToLoadComments } from "./commentsSlice";
 
-// Start of CommentPanel function creatinga panel for comments below a post
 export default function CommentPanel(props) {
-  //Main Variables
   const { comments, button } = props;
   const loading = useSelector(isLoadingComments);
   const failed = useSelector(failedToLoadComments);
@@ -14,13 +12,14 @@ export default function CommentPanel(props) {
     <p className={styles.failedText}>Failed to load comments!</p>
   );
 
-  //Ensuring comments is an array to avoid error before comments have loaded
   const commentsArray = Array.isArray(comments) ? comments : [];
 
-  // Return section mapping comments for a post
   return (
-    <div className={styles.commentsContainer}>
-      <div className={button ? styles.commentPanel : styles.noCommentPanel}>
+    <div className={styles.commentsContainer} data-testid="comment-panel">
+      <div
+        className={button ? styles.commentPanel : styles.noCommentPanel}
+        data-testid="inner-comment-panel"
+      >
         <h3>
           {loading
             ? loadingText
@@ -31,7 +30,6 @@ export default function CommentPanel(props) {
         <ul>
           {commentsArray.length > 0 ? (
             commentsArray.map((comment) => {
-              // Extract GIF URL from media_metadata
               const gifUrl = comment.media_metadata
                 ? Object.values(comment.media_metadata)[0]?.s?.gif
                 : null;
@@ -43,7 +41,7 @@ export default function CommentPanel(props) {
                     {gifUrl ? (
                       <img
                         src={gifUrl}
-                        alt="Comment media"
+                        alt="GIF in comment"
                         className={styles.commentImage}
                       />
                     ) : (

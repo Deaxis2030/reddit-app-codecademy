@@ -35,7 +35,7 @@ describe('SideBar Component', () => {
   });
 
   afterEach(() => {
-    fetch.mockClear(); // Clean up mocks to prevent leaks
+    fetch.mockClear();
   });
 
   it('renders loading state initially', async () => {
@@ -49,7 +49,6 @@ describe('SideBar Component', () => {
     expect(screen.getByText('Most Popular SubReddits')).toBeInTheDocument();
     expect(screen.getByText('Show')).toBeInTheDocument();
 
-    // Wait for loading to resolve to ensure no act warnings
     await waitFor(() => {
       expect(screen.queryByText('Loading Subreddits...')).not.toBeInTheDocument();
     }, { timeout: 2000 });
@@ -64,7 +63,13 @@ describe('SideBar Component', () => {
     );
     await waitFor(() => {
       expect(screen.queryByText('Loading Subreddits...')).not.toBeInTheDocument();
+    }, { timeout: 2000 });
+
+    await waitFor(() => {
       expect(screen.getByText('Most Popular SubReddits')).toBeInTheDocument();
+    }, { timeout: 2000 });
+
+    await waitFor(() => {
       expect(screen.getByText('testSubreddit')).toBeInTheDocument();
     }, { timeout: 2000 });
   });
@@ -124,7 +129,15 @@ describe('SideBar Component', () => {
     await waitFor(() => {
       const state = store.getState();
       expect(state.posts.posts).toHaveLength(1);
+    }, { timeout: 2000 });
+
+    await waitFor(() => {
+      const state = store.getState();
       expect(state.posts.posts[0].data.title).toBe('Test Post');
+    }, { timeout: 2000 });
+
+    await waitFor(() => {
+      const state = store.getState();
       expect(state.posts.isLoadingPosts).toBe(false);
     }, { timeout: 2000 });
   });

@@ -28,31 +28,30 @@ describe('CommentPanel Component', () => {
     comments: [{ id: 'c1', author: 'commenter', body: 'Test Comment' }],
   };
 
-  it('renders comments when button is true', () => {
+  it('renders comments when button is true', async () => {
     render(
       <Provider store={createTestStore()}>
         <CommentPanel {...baseProps} />
       </Provider>
     );
     expect(screen.getByText('Comments: 1')).toBeInTheDocument();
-    expect(screen.getByText((content, element) => {
-      const hasText = (node) => node.textContent === 'commenter: Test Comment';
-      const nodeHasText = hasText(element);
-      const childrenDontHaveText = Array.from(element.children).every(child => !hasText(child));
-      return nodeHasText && childrenDontHaveText;
+    expect(await screen.findByText((content, element) => {
+      if (!element || element.tagName.toLowerCase() !== 'p') return false;
+      const normalizedText = element.textContent?.replace(/\s+/g, ' ').trim();
+      return normalizedText === 'commenter: Test Comment';
     })).toBeInTheDocument();
   });
 
   it('hides comments when button is false', () => {
-    const { container } = render(
+    render(
       <Provider store={createTestStore()}>
         <CommentPanel {...baseProps} button={false} />
       </Provider>
     );
-    const commentPanel = container.querySelector(`.${styles.noCommentPanel}`);
-    expect(commentPanel).toBeInTheDocument();
-    expect(commentPanel).toHaveClass(styles.noCommentPanel);
-    expect(screen.getByText('Comments: 1')).toBeInTheDocument(); // Still in DOM, just hidden
+    const innerPanel = screen.getByTestId('inner-comment-panel');
+    expect(innerPanel).toBeInTheDocument();
+    expect(innerPanel).toHaveClass(styles.noCommentPanel);
+    expect(screen.getByText('Comments: 1')).toBeInTheDocument();
   });
 
   it('shows loading state', () => {

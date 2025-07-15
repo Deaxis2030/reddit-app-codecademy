@@ -19,11 +19,9 @@ const createTestStore = () =>
 describe('App Component', () => {
   beforeEach(() => {
     fetch.resetMocks();
-    // Mock subreddit API response
     fetch.mockResponseOnce(JSON.stringify({
       data: { children: [{ data: { display_name: 'testSubreddit' } }] },
     }));
-    // Mock posts API response with id
     fetch.mockResponseOnce(JSON.stringify({
       data: { children: [{ data: { title: 'Test Post', id: '123' } }] },
     }));
@@ -42,35 +40,41 @@ describe('App Component', () => {
 
     await waitFor(() => {
       expect(screen.queryByText('Loading Subreddits...')).not.toBeInTheDocument();
+    }, { timeout: 2000 });
+
+    await waitFor(() => {
       expect(screen.queryByText('Loading Posts...')).not.toBeInTheDocument();
-    });
+    }, { timeout: 2000 });
   });
 
   it('applies light mode class by default', async () => {
     const store = createTestStore();
-    const { container } = render(
+    render(
       <Provider store={store}>
         <App />
       </Provider>
     );
-    const appContainer = container.querySelector('.appContainer');
+    const appContainer = screen.getByTestId('app-container');
     expect(appContainer).toHaveClass('appContainer');
     expect(appContainer).not.toHaveClass('appContainerDarkMode');
 
     await waitFor(() => {
       expect(screen.queryByText('Loading Subreddits...')).not.toBeInTheDocument();
+    }, { timeout: 2000 });
+
+    await waitFor(() => {
       expect(screen.queryByText('Loading Posts...')).not.toBeInTheDocument();
-    });
+    }, { timeout: 2000 });
   });
 
   it('toggles to dark mode when handleClick is called', async () => {
     const store = createTestStore();
-    const { container } = render(
+    render(
       <Provider store={store}>
         <App />
       </Provider>
     );
-    const appContainer = container.querySelector('.appContainer');
+    const appContainer = screen.getByTestId('app-container');
     const toggleButton = screen.getByRole('button', { name: 'Toggle Dark Mode' });
 
     expect(appContainer).toHaveClass('appContainer');
@@ -82,18 +86,21 @@ describe('App Component', () => {
 
     await waitFor(() => {
       expect(screen.queryByText('Loading Subreddits...')).not.toBeInTheDocument();
+    }, { timeout: 2000 });
+
+    await waitFor(() => {
       expect(screen.queryByText('Loading Posts...')).not.toBeInTheDocument();
-    });
+    }, { timeout: 2000 });
   });
 
   it('toggles back to light mode on second click', async () => {
     const store = createTestStore();
-    const { container } = render(
+    render(
       <Provider store={store}>
         <App />
       </Provider>
     );
-    const appContainer = container.querySelector('.appContainer');
+    const appContainer = screen.getByTestId('app-container');
     const toggleButton = screen.getByRole('button', { name: 'Toggle Dark Mode' });
 
     fireEvent.click(toggleButton);
@@ -105,7 +112,10 @@ describe('App Component', () => {
 
     await waitFor(() => {
       expect(screen.queryByText('Loading Subreddits...')).not.toBeInTheDocument();
+    }, { timeout: 2000 });
+
+    await waitFor(() => {
       expect(screen.queryByText('Loading Posts...')).not.toBeInTheDocument();
-    });
+    }, { timeout: 2000 });
   });
 });

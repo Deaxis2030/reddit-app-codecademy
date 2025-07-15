@@ -19,7 +19,6 @@ const createTestStore = () =>
 describe('Search Component', () => {
   beforeEach(() => {
     fetch.resetMocks();
-    // Mock the exact URL and full Reddit API response for searchReddit('javascript')
     fetch.mockResponseOnce(req => {
       if (req.url === 'https://www.reddit.com/search/.json?q=javascript') {
         return Promise.resolve(JSON.stringify({
@@ -71,9 +70,16 @@ describe('Search Component', () => {
 
     await waitFor(() => {
       const state = store.getState();
-      console.log('Store state after submission:', JSON.stringify(state.posts, null, 2));
       expect(state.posts.posts).toHaveLength(1);
+    }, { timeout: 2000 });
+
+    await waitFor(() => {
+      const state = store.getState();
       expect(state.posts.posts[0].data.title).toBe('Test Post');
+    }, { timeout: 2000 });
+
+    await waitFor(() => {
+      const state = store.getState();
       expect(state.posts.isLoadingPosts).toBe(false);
     }, { timeout: 2000 });
   });

@@ -1,9 +1,6 @@
 import React, { useEffect, useRef } from "react";
-
-//Used this import method to avoid an error where Player variable was always undefined
 const dashjs = require("dashjs");
 
-//Start of VideoPlayer function
 const VideoPlayer = ({ url }) => {
   const videoRef = useRef(null);
 
@@ -15,7 +12,7 @@ const VideoPlayer = ({ url }) => {
       player.updateSettings({
         streaming: {
           text: {
-            defaultEnabled: false, // Disable text tracks if causing issues
+            defaultEnabled: false,
           },
         },
       });
@@ -31,7 +28,6 @@ const VideoPlayer = ({ url }) => {
     };
   }, [url]);
 
-  //Return Section
   return (
     <video
       ref={videoRef}
@@ -40,6 +36,7 @@ const VideoPlayer = ({ url }) => {
       loop
       autoPlay
       style={{ width: "100%", height: "auto" }}
+      data-testid="video-player"
     />
   );
 };

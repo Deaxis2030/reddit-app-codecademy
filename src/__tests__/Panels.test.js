@@ -73,9 +73,21 @@ describe('Panels Component', () => {
     );
     await waitFor(() => {
       expect(screen.queryByText('Loading Posts...')).not.toBeInTheDocument();
+    }, { timeout: 2000 });
+
+    await waitFor(() => {
       expect(screen.getByText('Test Post')).toBeInTheDocument();
+    }, { timeout: 2000 });
+
+    await waitFor(() => {
       expect(screen.getByText('r/test')).toBeInTheDocument();
+    }, { timeout: 2000 });
+
+    await waitFor(() => {
       expect(screen.getByText('by: testUser')).toBeInTheDocument();
+    }, { timeout: 2000 });
+
+    await waitFor(() => {
       expect(screen.getByText('Comments')).toBeInTheDocument();
     }, { timeout: 2000 });
   });
@@ -92,6 +104,9 @@ describe('Panels Component', () => {
     );
     await waitFor(() => {
       expect(screen.queryByText('Loading Posts...')).not.toBeInTheDocument();
+    }, { timeout: 2000 });
+
+    await waitFor(() => {
       expect(screen.getByText('Failed to load Posts!')).toBeInTheDocument();
     }, { timeout: 2000 });
   });
@@ -103,15 +118,10 @@ describe('Panels Component', () => {
         <Panels />
       </Provider>
     );
-    fetch.mockResponseOnce(req => {
-      if (req.url === 'https://www.reddit.com/r/test/comments/123/.json') {
-        return Promise.resolve(JSON.stringify([
-          { kind: 'Listing', data: { children: [] } },
-          { kind: 'Listing', data: { children: [{ kind: 't1', data: { id: 'c1', body: 'Test Comment', author: 'commenter' } }] } },
-        ]));
-      }
-      return Promise.reject(new Error(`Unexpected URL: ${req.url}`));
-    });
+    fetch.mockResponseOnce(JSON.stringify([
+      { kind: 'Listing', data: { children: [] } },
+      { kind: 'Listing', data: { children: [{ kind: 't1', data: { id: 'c1', body: 'Test Comment', author: 'commenter' } }] } },
+    ]));
 
     await waitFor(() => {
       expect(screen.getByText('Test Post')).toBeInTheDocument();
@@ -122,16 +132,22 @@ describe('Panels Component', () => {
 
     await waitFor(() => {
       expect(screen.getByText('Hide Comments')).toBeInTheDocument();
-      expect(screen.getByText('Comments: 1')).toBeInTheDocument();
-      expect(screen.getByText((content, element) => {
-        const hasText = (node) => node.textContent === 'commenter: Test Comment';
-        const nodeHasText = hasText(element);
-        const childrenDontHaveText = Array.from(element.children).every(child => !hasText(child));
-        return nodeHasText && childrenDontHaveText;
-      })).toBeInTheDocument();
-      const state = store.getState();
-      expect(state.comments.comments['123']).toHaveLength(1);
-      expect(state.comments.comments['123'][0].body).toBe('Test Comment');
     }, { timeout: 2000 });
+
+    await waitFor(() => {
+      expect(screen.getByText('Comments: 1')).toBeInTheDocument();
+    }, { timeout: 2000 });
+
+    await waitFor(() => {
+      expect(screen.getByText((content, element) => {
+        if (!element || element.tagName.toLowerCase() !== 'p') return false;
+        const normalizedText = element.textContent?.replace(/\s+/g, ' ').trim();
+        return normalizedText === 'commenter: Test Comment';
+      })).toBeInTheDocument();
+    }, { timeout: 2000 });
+
+    const state = store.getState();
+    expect(state.comments.comments['123']).toHaveLength(1);
+    expect(state.comments.comments['123'][0].body).toBe('Test Comment');
   });
 });

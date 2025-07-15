@@ -1,8 +1,7 @@
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import VideoPlayer from '../Features/VideoPlayer/VideoPlayer';
 
-// Mock dashjs
 const mockCreate = jest.fn();
 const mockInitialize = jest.fn();
 const mockReset = jest.fn();
@@ -25,8 +24,8 @@ describe('VideoPlayer Component', () => {
   });
 
   it('renders video element with correct attributes', () => {
-    const { container } = render(<VideoPlayer url="http://test.com/video.mpd" />);
-    const video = container.querySelector('video');
+    render(<VideoPlayer url="http://test.com/video.mpd" />);
+    const video = screen.getByTestId('video-player');
     expect(video).toBeInTheDocument();
     expect(video).toHaveAttribute('controls');
     expect(video).toHaveProperty('muted', true);

@@ -5,7 +5,7 @@ import Banner from "./Features/Banner/Banner";
 import Search from "./Components/Search/search";
 import { useState } from "react";
 import { Provider } from "react-redux";
-import store from "./store"; // Adjust path if needed
+import store from "./Store.js";
 
 function App() {
   const [toggle, setToggle] = useState(false);

@@ -1,14 +1,10 @@
 name: CI/CD Pipeline for Reddit App
-
 on:
   push:
-    branches:
-      - main
-
+    branches: [ main ]
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -18,28 +14,15 @@ jobs:
           node-version: '20'
       - name: Install dependencies
         run: npm install
+      - name: Run tests
+        run: npm test -- --watchAll=false
       - name: Build application
         run: npm run build -- --no-lint
         env:
           CI: false
-          # Add environment variables if needed, e.g.:
-          # REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
-      - name: Run tests
-        run: npm test
-        if: success()
-        continue-on-error: true
-      - name: Verify secrets
-        run: |
-          echo "VERCEL_TOKEN is set: ${{ secrets.VERCEL_TOKEN != '' }}"
-          echo "VERCEL_ORG_ID is set: ${{ secrets.VERCEL_ORG_ID != '' }}"
-          echo "VERCEL_PROJECT_ID is set: ${{ secrets.VERCEL_PROJECT_ID != '' }}"
-        if: success()
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: '--prod'
-          scope: ${{ secrets.VERCEL_ORG_ID }}
-        if: success()
